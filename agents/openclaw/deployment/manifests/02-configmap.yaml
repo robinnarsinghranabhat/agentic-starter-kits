@@ -9,7 +9,7 @@ data:
     {
       "gateway": {
         "port": 18789,
-        "bind": "0.0.0.0",
+        "bind": "lan",
         "mode": "local",
         "auth": {
           "mode": "token"
@@ -18,8 +18,7 @@ data:
       "channels": {},
       "agents": {
         "defaults": {
-          "heartbeat": {},
-          "model": "openai-compat/gpt-oss-20b",
+          "model": "vllm/YOUR-MODEL-ID",
           "sandbox": {
             "mode": "off"
           }
@@ -28,14 +27,14 @@ data:
       "models": {
         "mode": "replace",
         "providers": {
-          "openai-compat": {
-            "baseUrl": "https://YOUR-VLLM-ENDPOINT/v1",
+          "vllm": {
+            "baseUrl": "https://YOUR-VLLM-OR-OGX-ENDPOINT/v1",
             "api": "openai-completions",
             "apiKey": "not-needed",
             "models": [
               {
-                "id": "gpt-oss-20b",
-                "name": "gpt-oss-20b",
+                "id": "vllm/YOUR-MODEL-ID",
+                "name": "vllm/YOUR-MODEL-ID",
                 "reasoning": false,
                 "input": ["text"],
                 "contextWindow": 32768,
